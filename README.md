@@ -173,6 +173,19 @@ ferroload/
 
 ## ⚡ Quick Start
 
+### 🪟 Windows — One-Click Launch
+
+Clone or download the repo, then just **double-click `ferroload.bat`**:
+
+```
+ferroload.bat          ← Builds everything on first run, then launches
+ferroload-rebuild.bat  ← Force-rebuilds frontend + backend after updates
+```
+
+> On first launch it will automatically install npm dependencies, build the React frontend, compile the Rust binary, and open your browser to `http://localhost:7070`. Every run after that starts instantly.
+
+---
+
 ### Download Binary *(Recommended)*
 
 Head to [**Releases**](https://github.com/manoranjan2050/Ferroload/releases) and grab the binary for your platform:
