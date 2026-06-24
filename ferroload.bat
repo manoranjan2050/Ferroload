@@ -8,9 +8,9 @@ set "BINARY=%SCRIPT_DIR%target\release\ferroload.exe"
 set "WEB_DIR=%SCRIPT_DIR%web"
 set "DIST_DIR=%SCRIPT_DIR%web\dist"
 
-:: Load Rust into PATH (in case it was installed but not in system PATH)
-if exist "%USERPROFILE%\.cargo\env" call "%USERPROFILE%\.cargo\env"
-if exist "%USERPROFILE%\.cargo\bin" set "PATH=%USERPROFILE%\.cargo\bin;%PATH%"
+:: ── Load Rust/Cargo into PATH (works even without restarting cmd) ──────────────
+set "CARGO_BIN=%USERPROFILE%\.cargo\bin"
+if exist "%CARGO_BIN%\cargo.exe" set "PATH=%CARGO_BIN%;%PATH%"
 
 cls
 echo.
@@ -25,7 +25,7 @@ if exist "%BINARY%" goto :RUN
 echo  [BUILD] First-time setup. This will take a few minutes...
 echo.
 
-:: Check Node.js
+:: ── Check Node.js ─────────────────────────────────────────────────────────────
 where node >nul 2>&1
 if errorlevel 1 (
     echo  [ERROR] Node.js not found!
@@ -35,24 +35,29 @@ if errorlevel 1 (
     echo.
     pause & exit /b 1
 )
-for /f "tokens=*" %%v in ('node -v') do echo  [OK] Node.js %%v found
+for /f "tokens=*" %%v in ('node -v 2^>nul') do echo  [OK] Node.js %%v found
 
-:: Check Cargo
+:: ── Check Cargo ───────────────────────────────────────────────────────────────
 where cargo >nul 2>&1
 if errorlevel 1 (
     echo  [ERROR] Rust / Cargo not found!
     echo.
+    echo  Checked: %CARGO_BIN%\cargo.exe
+    echo.
     echo  Please install Rust from:
     echo    https://rustup.rs
     echo.
-    echo  After installing, close and reopen this window, then try again.
+    echo  Opening download page...
+    start https://rustup.rs
+    echo.
+    echo  After installing Rust, close this window and run ferroload.bat again.
     echo.
     pause & exit /b 1
 )
-for /f "tokens=*" %%v in ('cargo -V') do echo  [OK] %%v found
+for /f "tokens=*" %%v in ('cargo -V 2^>nul') do echo  [OK] %%v found
 echo.
 
-:: Build frontend
+:: ── Build frontend ────────────────────────────────────────────────────────────
 if not exist "%DIST_DIR%" (
     echo  [1/3] Installing frontend dependencies (npm install)...
     cd /d "%WEB_DIR%"
@@ -69,7 +74,7 @@ if not exist "%DIST_DIR%" (
     echo  [2/3] Skipped.
 )
 
-:: Build Rust binary
+:: ── Build Rust binary ─────────────────────────────────────────────────────────
 echo.
 echo  [3/3] Compiling Rust binary (first build may take 5-10 minutes)...
 cd /d "%SCRIPT_DIR%"
@@ -93,9 +98,7 @@ echo  Press Ctrl+C to stop.
 echo  ---------------------------------------------------------------------
 echo.
 
-:: Open browser after 2 seconds
 start "" cmd /c "timeout /t 2 /nobreak >nul && start http://localhost:7070"
-
 "%BINARY%"
 
 echo.
