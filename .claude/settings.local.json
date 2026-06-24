@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\crates\\\\ferroload-engine\\\\src\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\crates\\\\ferroload-api\\\\src\\\\routes\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\crates\\\\ferroload-cli\\\\src\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\api\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\components\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\stores\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\hooks\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\types\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\.github\\\\workflows\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\pages\")"
+    ]
+  }
+}

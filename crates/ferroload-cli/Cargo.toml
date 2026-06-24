@@ -1,0 +1,21 @@
+[package]
+name = "ferroload-cli"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[[bin]]
+name = "ferroload"
+path = "src/main.rs"
+
+[dependencies]
+ferroload-engine = { path = "../ferroload-engine" }
+ferroload-api = { path = "../ferroload-api" }
+tokio = { workspace = true }
+actix-web = { workspace = true }
+actix-files = "0.6"
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+include_dir = "0.7"

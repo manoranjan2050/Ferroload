@@ -1,0 +1,22 @@
+[package]
+name = "ferroload-api"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ferroload-engine = { path = "../ferroload-engine" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+sqlx = { workspace = true }
+actix-web = { workspace = true }
+actix-ws = { workspace = true }
+actix-multipart = "0.6"
+reqwest = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+tokio-stream = "0.1"
+futures-util = "0.3"
+bytes = "1"
