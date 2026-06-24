@@ -1,118 +1,101 @@
 @echo off
+chcp 65001 >nul
 setlocal enabledelayedexpansion
 title Ferroload
-
-:: ─────────────────────────────────────────────
-::  FERROLOAD LAUNCHER
-::  Builds frontend + backend if needed, then runs
-:: ─────────────────────────────────────────────
 
 set "SCRIPT_DIR=%~dp0"
 set "BINARY=%SCRIPT_DIR%target\release\ferroload.exe"
 set "WEB_DIR=%SCRIPT_DIR%web"
 set "DIST_DIR=%SCRIPT_DIR%web\dist"
 
+:: Load Rust into PATH (in case it was installed but not in system PATH)
+if exist "%USERPROFILE%\.cargo\env" call "%USERPROFILE%\.cargo\env"
+if exist "%USERPROFILE%\.cargo\bin" set "PATH=%USERPROFILE%\.cargo\bin;%PATH%"
+
 cls
 echo.
-echo  ███████╗███████╗██████╗ ██████╗  ██████╗ ██╗      ██████╗  █████╗ ██████╗
-echo  ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔═══██╗██║     ██╔═══██╗██╔══██╗██╔══██╗
-echo  █████╗  █████╗  ██████╔╝██████╔╝██║   ██║██║     ██║   ██║███████║██║  ██║
-echo  ██╔══╝  ██╔══╝  ██╔══██╗██╔══██╗██║   ██║██║     ██║   ██║██╔══██║██║  ██║
-echo  ██║     ███████╗██║  ██║██║  ██║╚██████╔╝███████╗╚██████╔╝██║  ██║██████╔╝
-echo  ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝
-echo.
-echo                    Fast, Beautiful, Open-Source BitTorrent Client
-echo  ─────────────────────────────────────────────────────────────────────────────
+echo  =====================================================================
+echo   FERROLOAD  -  Fast, Beautiful, Open-Source BitTorrent Client
+echo  =====================================================================
 echo.
 
-:: ── Check if release binary already exists ─────────────────────────────────────
-if exist "%BINARY%" (
-    echo  [OK] Binary found. Skipping build.
-    goto :RUN
-)
+:: Already built? Skip everything.
+if exist "%BINARY%" goto :RUN
 
-echo  [BUILD] Binary not found. Starting first-time build...
+echo  [BUILD] First-time setup. This will take a few minutes...
 echo.
 
-:: ── Check Node.js ───────────────────────────────────────────────────────────────
+:: Check Node.js
 where node >nul 2>&1
 if errorlevel 1 (
     echo  [ERROR] Node.js not found!
     echo.
-    echo  Please install Node.js 18+ from: https://nodejs.org
+    echo  Please install Node.js 18+ from:
+    echo    https://nodejs.org
     echo.
-    pause
-    exit /b 1
+    pause & exit /b 1
 )
+for /f "tokens=*" %%v in ('node -v') do echo  [OK] Node.js %%v found
 
-:: ── Check Rust/Cargo ────────────────────────────────────────────────────────────
+:: Check Cargo
 where cargo >nul 2>&1
 if errorlevel 1 (
     echo  [ERROR] Rust / Cargo not found!
     echo.
-    echo  Please install Rust from: https://rustup.rs
+    echo  Please install Rust from:
+    echo    https://rustup.rs
     echo.
-    pause
-    exit /b 1
+    echo  After installing, close and reopen this window, then try again.
+    echo.
+    pause & exit /b 1
 )
+for /f "tokens=*" %%v in ('cargo -V') do echo  [OK] %%v found
+echo.
 
-:: ── Build frontend ──────────────────────────────────────────────────────────────
+:: Build frontend
 if not exist "%DIST_DIR%" (
-    echo  [1/3] Installing frontend dependencies...
+    echo  [1/3] Installing frontend dependencies (npm install)...
     cd /d "%WEB_DIR%"
     call npm install
-    if errorlevel 1 (
-        echo  [ERROR] npm install failed!
-        pause
-        exit /b 1
-    )
+    if errorlevel 1 ( echo  [ERROR] npm install failed! & pause & exit /b 1 )
 
     echo.
-    echo  [2/3] Building React frontend...
+    echo  [2/3] Building React frontend (npm run build)...
     call npm run build
-    if errorlevel 1 (
-        echo  [ERROR] npm build failed!
-        pause
-        exit /b 1
-    )
+    if errorlevel 1 ( echo  [ERROR] npm build failed! & pause & exit /b 1 )
     cd /d "%SCRIPT_DIR%"
 ) else (
-    echo  [1/3] Frontend already built. Skipping.
+    echo  [1/3] Frontend already built, skipping.
     echo  [2/3] Skipped.
 )
 
-:: ── Build Rust binary ───────────────────────────────────────────────────────────
+:: Build Rust binary
 echo.
-echo  [3/3] Compiling Rust binary (this may take a few minutes first time)...
+echo  [3/3] Compiling Rust binary (first build may take 5-10 minutes)...
 cd /d "%SCRIPT_DIR%"
 cargo build --release -p ferroload-cli
 if errorlevel 1 (
     echo.
-    echo  [ERROR] Rust build failed! Check the errors above.
-    pause
-    exit /b 1
+    echo  [ERROR] Rust build failed! See errors above.
+    pause & exit /b 1
 )
 
 echo.
-echo  ─────────────────────────────────────────────────────────────────────────────
-echo  [OK] Build complete!
-echo  ─────────────────────────────────────────────────────────────────────────────
+echo  =====================================================================
+echo  [DONE] Build complete!
+echo  =====================================================================
 echo.
 
-:: ── Run ────────────────────────────────────────────────────────────────────────
 :RUN
-echo.
 echo  Starting Ferroload...
-echo  Dashboard → http://localhost:7070
-echo.
+echo  Dashboard -> http://localhost:7070
 echo  Press Ctrl+C to stop.
-echo  ─────────────────────────────────────────────────────────────────────────────
+echo  ---------------------------------------------------------------------
 echo.
 
-:: Small delay then open browser
+:: Open browser after 2 seconds
 start "" cmd /c "timeout /t 2 /nobreak >nul && start http://localhost:7070"
 
-:: Run the binary
 "%BINARY%"
 
 echo.
