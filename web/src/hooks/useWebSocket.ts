@@ -43,6 +43,6 @@ export function useWebSocket() {
           break
       }
     })
-    return unsub
+    return () => { unsub() }
   }, [])
 }
