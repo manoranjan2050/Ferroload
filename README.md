@@ -28,19 +28,9 @@
 
 <div align="center">
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      FERROLOAD DASHBOARD                        │
-│   ┌────────────────────────────────────────────────────────┐   │
-│   │  ↓ 12.4 MB/s    ↑ 2.1 MB/s    ⚡ 8 Active    💾 48GB  │   │
-│   └────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│   ████████████████░░░░  Ubuntu 24.04 LTS    78%  11m left      │
-│   ████████░░░░░░░░░░░░  Arch Linux ISO      42%  32m left      │
-│   ████████████████████  Debian 12           Done  Seeding      │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+<img src="docs/screenshot.svg" alt="Ferroload Dashboard — dark UI showing torrent list, real-time speed graph, and detail panel" width="100%" style="border-radius:12px; max-width:900px;"/>
+
+<sub><sup>Real-time speed graph · Torrent list with live progress · Detail panel with piece strategy, file priorities, peer flags (uTP · DHT · PEX)</sup></sub>
 
 </div>
 
@@ -90,21 +80,27 @@
 
 | Feature | Status | Details |
 |:---|:---:|:---|
-| 📥 Magnet Links | ✅ | Paste and go |
+| 📥 Magnet Links | ✅ | Paste and go — metadata prefetched from trackers instantly |
 | 📁 .torrent File Upload | ✅ | Drag & drop or file picker |
-| 🌐 Torrent from URL | ✅ | Remote .torrent file fetching |
 | ⏸️ Pause / Resume | ✅ | Per-torrent control |
 | 📊 Real-time Speed Graph | ✅ | 60-second rolling window |
-| 👥 Peer Information | ✅ | Per-torrent peer list |
-| 📂 File Priority | ✅ | High / Normal / Skip per file |
+| 👥 Peer Information | ✅ | Per-torrent peer list with uTP / DHT / PEX flags |
+| 📂 File Priority | ✅ | High / Normal / Skip per file with live controls |
+| 🧩 Piece Strategy | ✅ | Rarest-first / Sequential (video) / Random per torrent |
+| 🌱 Superseeding | ✅ | Upload each piece once to maximize swarm spread |
+| 📡 DHT + PEX + LSD | ✅ | Peer discovery without tracker — DHT node count in top bar |
+| ⬆️ Upload Throttle | ✅ | Cap upload so download isn't starved on asymmetric links |
+| 💾 Disk Write Buffer | ✅ | RAM-buffered sequential writes — eliminates HDD random-write thrash |
+| 🔀 uTP Transport | ✅ | Adaptive congestion control — yields to other traffic automatically |
+| 🔌 Connection Pool | ✅ | 50–200 peers per torrent, global cap — all configurable |
 | 📡 RSS Auto-downloader | ✅ | With regex filter support |
-| ⚙️ Settings Panel | ✅ | Speed limits, port, schedule |
+| ⚙️ Settings Panel | ✅ | All speed features configurable, take effect immediately |
 | 🤖 AI Chat (Ollama) | ✅ | Optional, fully local |
 | 🔄 WebSocket Events | ✅ | Live torrent progress |
 | 🗄️ SQLite History | ✅ | Persistent download records |
 | 🌙 Dark / Light Mode | ✅ | System preference aware |
 | 📦 Single Binary | ✅ | Frontend embedded at compile time |
-| 🚀 Cross-platform CI | ✅ | Windows / macOS / Linux |
+| ℹ️ About Page | ✅ | Developer profile, open-source credits, legal declaration |
 
 </div>
 

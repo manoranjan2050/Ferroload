@@ -1,0 +1,241 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="'Inter',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="dl-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3a5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#22d3a5" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ul-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window chrome -->
+  <rect width="900" height="560" rx="12" fill="#0f0f14"/>
+  <rect width="900" height="560" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <!-- Title bar -->
+  <rect width="900" height="36" rx="12" fill="#18181f"/>
+  <rect y="24" width="900" height="12" fill="#18181f"/>
+  <circle cx="20" cy="18" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="18" r="6" fill="#febc2e"/>
+  <circle cx="56" cy="18" r="6" fill="#28c840"/>
+  <text x="450" y="23" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="12">Ferroload — localhost:7070</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="36" width="56" height="524" fill="#13131a"/>
+  <rect x="55.5" y="36" width="0.5" height="524" fill="#ffffff" fill-opacity="0.05"/>
+  <rect x="12" y="52" width="32" height="32" rx="9" fill="#7c6af7"/>
+  <text x="28" y="73" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">F</text>
+
+  <!-- Nav icons -->
+  <rect x="11" y="96" width="34" height="34" rx="8" fill="#7c6af7"/>
+  <g transform="translate(28,113)" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round">
+    <line x1="-8" y1="-7" x2="8" y2="-7"/><line x1="-8" y1="0" x2="8" y2="0"/><line x1="-8" y1="7" x2="4" y2="7"/>
+    <polyline points="4,4 8,7 4,10"/>
+  </g>
+  <g transform="translate(28,152)" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.6" stroke-linecap="round">
+    <path d="M-7,7 Q-7,-7 7,-7"/><path d="M-7,7 Q-7,-1 1,-1"/><circle cx="-4" cy="7" r="1.5" fill="#ffffff" fill-opacity="0.3" stroke="none"/>
+  </g>
+  <g transform="translate(28,186)" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.6" stroke-linecap="round">
+    <circle cx="0" cy="0" r="4"/><path d="M0,-8 0,-6 M0,6 0,8 M-8,0 -6,0 M6,0 8,0 M-5.6,-5.6 -4.2,-4.2 M4.2,4.2 5.6,5.6 M5.6,-5.6 4.2,-4.2 M-4.2,4.2 -5.6,5.6"/>
+  </g>
+  <g transform="translate(28,492)" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.6" stroke-linecap="round">
+    <circle cx="0" cy="0" r="8"/><line x1="0" y1="-3" x2="0" y2="3"/><circle cx="0" cy="-5.5" r="1" fill="#ffffff" fill-opacity="0.25" stroke="none"/>
+  </g>
+  <g transform="translate(28,524)" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.6" stroke-linecap="round">
+    <path d="M3,-7 Q-9,-3 -6,7 Q4,12 9,3 Q0,5 3,-7Z"/>
+  </g>
+
+  <!-- MAIN PANEL top bar -->
+  <rect x="56" y="36" width="844" height="48" fill="#13131a"/>
+  <rect x="56" y="83.5" width="844" height="0.5" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="74" y="66" fill="#ffffff" font-size="14" font-weight="600">Torrents</text>
+  <g transform="translate(200,60)">
+    <path d="M0,-6 L0,4 M-4,1 L0,5 L4,1" stroke="#22d3a5" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <text x="14" y="5" font-size="13" font-weight="500" fill="#22d3a5">12.4 MB/s</text>
+  </g>
+  <g transform="translate(310,60)">
+    <path d="M0,6 L0,-4 M-4,-1 L0,-5 L4,-1" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <text x="14" y="5" font-size="13" font-weight="500" fill="#f97316">2.1 MB/s</text>
+  </g>
+  <text x="412" y="65" fill="#ffffff" fill-opacity="0.35" font-size="12">&#9889; 6 active</text>
+  <text x="490" y="65" fill="#ffffff" fill-opacity="0.25" font-size="12">DHT 256</text>
+  <text x="550" y="65" fill="#ffffff" fill-opacity="0.25" font-size="12">BUF 23%</text>
+  <rect x="780" y="50" width="108" height="28" rx="7" fill="#7c6af7"/>
+  <text x="834" y="69" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="600">+ Add Torrent</text>
+
+  <!-- SPEED GRAPH -->
+  <rect x="68" y="94" width="440" height="106" rx="10" fill="#18181f"/>
+  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="0.5">
+    <line x1="78" y1="116" x2="498" y2="116"/>
+    <line x1="78" y1="135" x2="498" y2="135"/>
+    <line x1="78" y1="154" x2="498" y2="154"/>
+    <line x1="78" y1="173" x2="498" y2="173"/>
+  </g>
+  <text x="76" y="119" fill="#ffffff" fill-opacity="0.2" font-size="9" text-anchor="end">15</text>
+  <text x="76" y="138" fill="#ffffff" fill-opacity="0.2" font-size="9" text-anchor="end">10</text>
+  <text x="76" y="157" fill="#ffffff" fill-opacity="0.2" font-size="9" text-anchor="end">5</text>
+  <text x="76" y="176" fill="#ffffff" fill-opacity="0.2" font-size="9" text-anchor="end">0</text>
+  <path d="M80,172 L100,162 L120,158 L140,148 L160,144 L180,132 L200,128 L220,134 L240,140 L260,126 L280,118 L300,122 L320,130 L340,120 L360,116 L380,124 L400,120 L420,126 L440,122 L460,118 L480,124 L498,120 L498,178 L80,178Z" fill="url(#dl-grad)"/>
+  <path d="M80,172 L100,162 L120,158 L140,148 L160,144 L180,132 L200,128 L220,134 L240,140 L260,126 L280,118 L300,122 L320,130 L340,120 L360,116 L380,124 L400,120 L420,126 L440,122 L460,118 L480,124 L498,120" fill="none" stroke="#22d3a5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80,176 L100,174 L120,173 L140,170 L160,168 L180,165 L200,164 L220,166 L240,168 L260,162 L280,158 L300,160 L320,164 L340,158 L360,155 L380,160 L400,157 L420,161 L440,158 L460,155 L480,159 L498,156 L498,178 L80,178Z" fill="url(#ul-grad)"/>
+  <path d="M80,176 L100,174 L120,173 L140,170 L160,168 L180,165 L200,164 L220,166 L240,168 L260,162 L280,158 L300,160 L320,164 L340,158 L360,155 L380,160 L400,157 L420,161 L440,158 L460,155 L480,159 L498,156" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="86" y="100" width="7" height="7" rx="2" fill="#22d3a5"/>
+  <text x="97" y="108" fill="#ffffff" fill-opacity="0.5" font-size="10">Download</text>
+  <rect x="150" y="100" width="7" height="7" rx="2" fill="#f97316"/>
+  <text x="161" y="108" fill="#ffffff" fill-opacity="0.5" font-size="10">Upload</text>
+
+  <!-- TORRENT LIST -->
+  <rect x="68" y="210" width="440" height="350" rx="10" fill="#18181f"/>
+  <rect x="68" y="210" width="440" height="34" rx="10" fill="#1c1c25"/>
+  <rect x="68" y="230" width="440" height="14" fill="#1c1c25"/>
+  <text x="84" y="231" fill="#ffffff" fill-opacity="0.3" font-size="10" font-weight="600" letter-spacing="0.5">NAME</text>
+  <text x="290" y="231" fill="#ffffff" fill-opacity="0.3" font-size="10" font-weight="600" letter-spacing="0.5">SIZE</text>
+  <text x="338" y="231" fill="#ffffff" fill-opacity="0.3" font-size="10" font-weight="600" letter-spacing="0.5">PROGRESS</text>
+  <text x="430" y="231" fill="#ffffff" fill-opacity="0.3" font-size="10" font-weight="600" letter-spacing="0.5">STATUS</text>
+
+  <!-- Row 1 active -->
+  <rect x="68" y="244" width="440" height="52" fill="#1e1e28"/>
+  <rect x="82" y="262" width="3" height="18" rx="1.5" fill="#22d3a5"/>
+  <text x="94" y="272" fill="#ffffff" font-size="12" font-weight="500">Ubuntu 24.04 LTS Desktop</text>
+  <text x="94" y="285" fill="#ffffff" fill-opacity="0.3" font-size="10">5.2 GB  &#183;  &#8595; 8.3 MB/s  &#183;  14 peers</text>
+  <text x="290" y="272" fill="#ffffff" fill-opacity="0.6" font-size="11">5.2 GB</text>
+  <rect x="338" y="265" width="80" height="5" rx="2.5" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="338" y="265" width="62" height="5" rx="2.5" fill="#22d3a5"/>
+  <text x="424" y="270" fill="#22d3a5" font-size="10">78%</text>
+  <rect x="432" y="262" width="56" height="16" rx="4" fill="#22d3a5" fill-opacity="0.15"/>
+  <text x="460" y="274" text-anchor="middle" fill="#22d3a5" font-size="10" font-weight="600">&#8595; Active</text>
+
+  <!-- Row 2 -->
+  <rect x="68" y="297" width="440" height="52" fill="#18181f"/>
+  <rect x="82" y="315" width="3" height="18" rx="1.5" fill="#f97316"/>
+  <text x="94" y="325" fill="#ffffff" font-size="12" font-weight="500">Arch Linux x86_64 2024.iso</text>
+  <text x="94" y="338" fill="#ffffff" fill-opacity="0.3" font-size="10">1.1 GB  &#183;  &#8595; 4.1 MB/s  &#183;  8 peers</text>
+  <text x="290" y="325" fill="#ffffff" fill-opacity="0.6" font-size="11">1.1 GB</text>
+  <rect x="338" y="318" width="80" height="5" rx="2.5" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="338" y="318" width="34" height="5" rx="2.5" fill="#f97316"/>
+  <text x="424" y="323" fill="#f97316" font-size="10">42%</text>
+  <rect x="432" y="315" width="56" height="16" rx="4" fill="#f97316" fill-opacity="0.15"/>
+  <text x="460" y="327" text-anchor="middle" fill="#f97316" font-size="10" font-weight="600">&#8595; Active</text>
+
+  <!-- Row 3 seeding -->
+  <rect x="68" y="350" width="440" height="52" fill="#1e1e28"/>
+  <rect x="82" y="368" width="3" height="18" rx="1.5" fill="#7c6af7"/>
+  <text x="94" y="378" fill="#ffffff" font-size="12" font-weight="500">Debian 12 Bookworm netinst</text>
+  <text x="94" y="391" fill="#ffffff" fill-opacity="0.3" font-size="10">628 MB  &#183;  &#8593; 1.2 MB/s  &#183;  ratio 1.42</text>
+  <text x="290" y="378" fill="#ffffff" fill-opacity="0.6" font-size="11">628 MB</text>
+  <rect x="338" y="371" width="80" height="5" rx="2.5" fill="#7c6af7"/>
+  <text x="424" y="376" fill="#7c6af7" font-size="10">100%</text>
+  <rect x="432" y="368" width="56" height="16" rx="4" fill="#7c6af7" fill-opacity="0.15"/>
+  <text x="460" y="380" text-anchor="middle" fill="#7c6af7" font-size="10" font-weight="600">&#8679; Seeding</text>
+
+  <!-- Row 4 paused -->
+  <rect x="68" y="403" width="440" height="52" fill="#18181f"/>
+  <rect x="82" y="421" width="3" height="18" rx="1.5" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="94" y="431" fill="#ffffff" fill-opacity="0.5" font-size="12" font-weight="500">Fedora-Workstation-Live-40.iso</text>
+  <text x="94" y="444" fill="#ffffff" fill-opacity="0.2" font-size="10">2.1 GB  &#183;  Paused</text>
+  <text x="290" y="431" fill="#ffffff" fill-opacity="0.3" font-size="11">2.1 GB</text>
+  <rect x="338" y="424" width="80" height="5" rx="2.5" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="338" y="424" width="22" height="5" rx="2.5" fill="#ffffff" fill-opacity="0.25"/>
+  <text x="424" y="429" fill="#ffffff" fill-opacity="0.3" font-size="10">27%</text>
+  <rect x="432" y="421" width="56" height="16" rx="4" fill="#ffffff" fill-opacity="0.06"/>
+  <text x="460" y="433" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="10" font-weight="600">&#9646;&#9646; Paused</text>
+
+  <!-- Row 5 -->
+  <rect x="68" y="456" width="440" height="52" fill="#1e1e28"/>
+  <rect x="82" y="474" width="3" height="18" rx="1.5" fill="#22d3a5"/>
+  <text x="94" y="484" fill="#ffffff" font-size="12" font-weight="500">Linux Mint 21.3 Cinnamon</text>
+  <text x="94" y="497" fill="#ffffff" fill-opacity="0.3" font-size="10">2.7 GB  &#183;  &#8595; 6.2 MB/s  &#183;  21 peers  &#183;  uTP</text>
+  <text x="290" y="484" fill="#ffffff" fill-opacity="0.6" font-size="11">2.7 GB</text>
+  <rect x="338" y="477" width="80" height="5" rx="2.5" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="338" y="477" width="52" height="5" rx="2.5" fill="#22d3a5"/>
+  <text x="424" y="482" fill="#22d3a5" font-size="10">65%</text>
+  <rect x="432" y="474" width="56" height="16" rx="4" fill="#22d3a5" fill-opacity="0.15"/>
+  <text x="460" y="486" text-anchor="middle" fill="#22d3a5" font-size="10" font-weight="600">&#8595; Active</text>
+
+  <!-- DETAIL PANEL -->
+  <rect x="516" y="94" width="372" height="466" rx="10" fill="#18181f"/>
+  <rect x="516" y="94" width="372" height="58" rx="10" fill="#1c1c25"/>
+  <rect x="516" y="138" width="372" height="14" fill="#1c1c25"/>
+  <text x="532" y="115" fill="#ffffff" font-size="12" font-weight="600">Ubuntu 24.04 LTS Desktop</text>
+  <text x="532" y="130" fill="#ffffff" fill-opacity="0.25" font-size="10" font-family="monospace">a88fce3d2b904e1c8f72...</text>
+  <line x1="868" y1="104" x2="880" y2="116" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="880" y1="104" x2="868" y2="116" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Progress ring -->
+  <circle cx="572" cy="200" r="38" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="7"/>
+  <circle cx="572" cy="200" r="38" fill="none" stroke="#22d3a5" stroke-width="7" stroke-linecap="round"
+          stroke-dasharray="238.76" stroke-dashoffset="52.5" transform="rotate(-90 572 200)"/>
+  <text x="572" y="197" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="600">78%</text>
+  <text x="572" y="211" text-anchor="middle" fill="#ffffff" fill-opacity="0.35" font-size="9">4.0 GB / 5.2 GB</text>
+
+  <g font-size="11">
+    <text x="628" y="167" fill="#ffffff" fill-opacity="0.35">Size</text>
+    <text x="876" y="167" fill="#ffffff" text-anchor="end">5.2 GB</text>
+    <text x="628" y="183" fill="#ffffff" fill-opacity="0.35">Down</text>
+    <text x="876" y="183" fill="#22d3a5" text-anchor="end">8.3 MB/s</text>
+    <text x="628" y="199" fill="#ffffff" fill-opacity="0.35">Up</text>
+    <text x="876" y="199" fill="#f97316" text-anchor="end">640 KB/s</text>
+    <text x="628" y="215" fill="#ffffff" fill-opacity="0.35">Peers</text>
+    <text x="876" y="215" fill="#ffffff" text-anchor="end">14 (37 in swarm)</text>
+    <text x="628" y="231" fill="#ffffff" fill-opacity="0.35">ETA</text>
+    <text x="876" y="231" fill="#ffffff" text-anchor="end">11 min</text>
+    <text x="628" y="247" fill="#ffffff" fill-opacity="0.35">Added</text>
+    <text x="876" y="247" fill="#ffffff" text-anchor="end">Today 09:41</text>
+  </g>
+
+  <rect x="516" y="258" width="372" height="1" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="566" y="276" text-anchor="middle" fill="#22d3a5" font-size="11" font-weight="600">Files</text>
+  <rect x="530" y="278" width="72" height="2" rx="1" fill="#22d3a5"/>
+  <text x="661" y="276" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="11">Peers</text>
+  <text x="751" y="276" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="11">Trackers</text>
+  <text x="846" y="276" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="11">Options</text>
+
+  <g font-size="11">
+    <text x="532" y="303" fill="#ffffff" fill-opacity="0.75">ubuntu-24.04-desktop-amd64.iso</text>
+    <text x="876" y="303" fill="#ffffff" fill-opacity="0.4" text-anchor="end">5.2 GB</text>
+    <rect x="532" y="308" width="332" height="3" rx="1.5" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="532" y="308" width="258" height="3" rx="1.5" fill="#22d3a5"/>
+    <rect x="532" y="316" width="44" height="14" rx="3" fill="#7c6af7" fill-opacity="0.2"/>
+    <text x="554" y="326" text-anchor="middle" fill="#a89cf7" font-size="9" font-weight="600">High</text>
+    <rect x="580" y="316" width="50" height="14" rx="3" fill="#ffffff" fill-opacity="0.06"/>
+    <text x="605" y="326" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="9">Normal</text>
+    <rect x="634" y="316" width="36" height="14" rx="3" fill="#ffffff" fill-opacity="0.06"/>
+    <text x="652" y="326" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="9">Skip</text>
+
+    <text x="532" y="350" fill="#ffffff" fill-opacity="0.75">MD5SUMS</text>
+    <text x="876" y="350" fill="#ffffff" fill-opacity="0.4" text-anchor="end">4 KB</text>
+    <rect x="532" y="355" width="332" height="3" rx="1.5" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="532" y="355" width="332" height="3" rx="1.5" fill="#22d3a5" fill-opacity="0.5"/>
+    <rect x="532" y="363" width="44" height="14" rx="3" fill="#ffffff" fill-opacity="0.06"/>
+    <text x="554" y="373" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="9">High</text>
+    <rect x="580" y="363" width="50" height="14" rx="3" fill="#7c6af7" fill-opacity="0.2"/>
+    <text x="605" y="373" text-anchor="middle" fill="#a89cf7" font-size="9" font-weight="600">Normal</text>
+    <rect x="634" y="363" width="36" height="14" rx="3" fill="#ffffff" fill-opacity="0.06"/>
+    <text x="652" y="373" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="9">Skip</text>
+  </g>
+
+  <rect x="516" y="420" width="372" height="1" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="532" y="438" fill="#ffffff" fill-opacity="0.25" font-size="9" letter-spacing="0.8">PIECE STRATEGY</text>
+  <rect x="532" y="444" width="108" height="24" rx="5" fill="#7c6af7" fill-opacity="0.2" stroke="#7c6af7" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="586" y="460" text-anchor="middle" fill="#a89cf7" font-size="10" font-weight="600">Rarest First</text>
+  <rect x="646" y="444" width="80" height="24" rx="5" fill="#ffffff" fill-opacity="0.04"/>
+  <text x="686" y="460" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="10">Sequential</text>
+  <rect x="732" y="444" width="56" height="24" rx="5" fill="#ffffff" fill-opacity="0.04"/>
+  <text x="760" y="460" text-anchor="middle" fill="#ffffff" fill-opacity="0.3" font-size="10">Random</text>
+
+  <text x="532" y="488" fill="#ffffff" fill-opacity="0.6" font-size="11">Superseeding</text>
+  <text x="532" y="500" fill="#ffffff" fill-opacity="0.2" font-size="9">Upload each piece once to maximize swarm spread</text>
+  <rect x="840" y="480" width="36" height="20" rx="10" fill="#ffffff" fill-opacity="0.1"/>
+  <circle cx="851" cy="490" r="7" fill="#ffffff" fill-opacity="0.5"/>
+
+  <rect x="532" y="516" width="32" height="15" rx="3" fill="#22d3a5" fill-opacity="0.15"/>
+  <text x="548" y="527" text-anchor="middle" fill="#22d3a5" font-size="9" font-weight="700">uTP</text>
+  <rect x="570" y="516" width="28" height="15" rx="3" fill="#7c6af7" fill-opacity="0.15"/>
+  <text x="584" y="527" text-anchor="middle" fill="#a89cf7" font-size="9" font-weight="700">DHT</text>
+  <rect x="604" y="516" width="24" height="15" rx="3" fill="#f97316" fill-opacity="0.15"/>
+  <text x="616" y="527" text-anchor="middle" fill="#f97316" font-size="9" font-weight="700">PEX</text>
+  <rect x="634" y="516" width="24" height="15" rx="3" fill="#ffffff" fill-opacity="0.08"/>
+  <text x="646" y="527" text-anchor="middle" fill="#ffffff" fill-opacity="0.4" font-size="9" font-weight="700">LSD</text>
+</svg>
