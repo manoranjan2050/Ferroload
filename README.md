@@ -386,6 +386,23 @@ git push origin v1.0.0
 
 <br/>
 
+## 🩺 Troubleshooting
+
+Running into an issue? See the full **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** guide — it covers:
+
+- App won't start / port already in use
+- Blank screen / frontend not built
+- Torrents disappear after restart
+- No peers / stuck at 0 peers
+- Slow download speed (upload throttle, write buffer, uTP, connection pool tips)
+- Windows build issues
+- Database corruption recovery
+- AI Chat not appearing (Ollama setup)
+- RSS auto-download not working
+- How to change port / download folder / reset settings
+
+<br/>
+
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how to get started:

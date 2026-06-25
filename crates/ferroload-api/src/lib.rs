@@ -1,6 +1,7 @@
 pub mod db;
 pub mod routes;
 pub mod state;
+pub mod startup;
 pub mod ws;
 
 use actix_web::web;
