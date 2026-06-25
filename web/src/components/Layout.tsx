@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { Download, Rss, Settings, Bot, BarChart2, Sun, Moon } from 'lucide-react'
+import { Download, Rss, Settings, Bot, Sun, Moon, Info } from 'lucide-react'
 import { useSettingsStore } from '../stores/settingsStore'
 import { cn } from '../lib/utils'
 
@@ -50,6 +50,18 @@ export default function Layout() {
             <Bot size={20} />
           </NavLink>
         )}
+        <NavLink
+          to="/about"
+          title="About"
+          className={({ isActive }) =>
+            cn(
+              'w-10 h-10 flex items-center justify-center rounded-lg transition-colors',
+              isActive ? 'bg-primary text-white' : 'text-white/40 hover:text-white hover:bg-white/5'
+            )
+          }
+        >
+          <Info size={20} />
+        </NavLink>
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           className="w-10 h-10 flex items-center justify-center rounded-lg text-white/40 hover:text-white hover:bg-white/5 transition-colors"

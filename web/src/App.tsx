@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import RssManager from './pages/RssManager'
 import SettingsPage from './pages/SettingsPage'
 import AiPage from './pages/AiPage'
+import AboutPage from './pages/AboutPage'
 import { useEffect } from 'react'
 import { useSettingsStore } from './stores/settingsStore'
 
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/rss" element={<RssManager />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/ai" element={<AiPage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
