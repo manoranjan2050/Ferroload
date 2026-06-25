@@ -14,7 +14,12 @@
       "PowerShell(Start-Process \"https://win.rustup.rs/x86_64\")",
       "Bash(cargo tree *)",
       "WebFetch(domain:docs.rs)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "PowerShell(winget install --id GitHub.cli -e --silent 2>&1)",
+      "PowerShell(winget install --id GitHub.cli -e 2>&1)",
+      "PowerShell(winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements 2>&1)",
+      "Bash(which gh *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Program Files\\\\GitHub CLI\", \"C:\\\\Program Files \\(x86\\)\\\\GitHub CLI\", \"$env:LOCALAPPDATA\\\\Programs\\\\GitHub CLI\" -Filter \"gh.exe\" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)"
     ]
   }
 }

@@ -20,6 +20,7 @@ pub fn configure_routes(cfg: &mut web::ServiceConfig) {
             .route("/torrents/{id}/peers", web::get().to(torrents::get_peers))
             .route("/torrents/{id}/files", web::get().to(torrents::get_files))
             .route("/torrents/{id}/priority", web::patch().to(torrents::set_priority))
+            .route("/torrents/{id}/config", web::patch().to(torrents::set_torrent_config))
             .route("/stats", web::get().to(stats::get_stats))
             .route("/settings", web::get().to(settings::get_settings))
             .route("/settings", web::put().to(settings::update_settings))

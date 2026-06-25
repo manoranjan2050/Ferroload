@@ -1,5 +1,6 @@
 export type TorrentStatus = 'paused' | 'downloading' | 'seeding' | 'error' | 'checking' | 'queued'
 export type FilePriority = 'high' | 'normal' | 'skip'
+export type PieceStrategy = 'rarest_first' | 'sequential' | 'random'
 
 export interface TorrentFile {
   name: string
@@ -38,6 +39,11 @@ export interface TorrentInfo {
   label: string | null
   added_at: number
   files: TorrentFile[]
+  // speed features
+  piece_strategy: PieceStrategy
+  superseeding: boolean
+  metadata_ready: boolean
+  trackers: string[]
 }
 
 export interface GlobalStats {
@@ -48,6 +54,13 @@ export interface GlobalStats {
   active_torrents: number
   paused_torrents: number
   seeding_torrents: number
+  // feature 4
+  dht_nodes: number
+  pex_peers: number
+  lsd_peers: number
+  // feature 6
+  write_buffer_used: number
+  write_buffer_capacity: number
 }
 
 export interface Settings {
@@ -55,7 +68,17 @@ export interface Settings {
   max_download_speed_kbps: number
   max_upload_speed_kbps: number
   listen_port: number
+  // feature 4
   dht_enabled: boolean
+  pex_enabled: boolean
+  lsd_enabled: boolean
+  // feature 2
+  max_connections_per_torrent: number
+  max_total_connections: number
+  // feature 6
+  write_buffer_mb: number
+  // feature 7
+  utp_enabled: boolean
   schedule_enabled: boolean
   schedule_start: string
   schedule_end: string

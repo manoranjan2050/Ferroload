@@ -3,6 +3,7 @@ use actix_multipart::Multipart;
 use futures_util::StreamExt;
 use serde::Deserialize;
 use serde_json::json;
+use ferroload_engine::TorrentConfig;
 use crate::state::AppState;
 
 #[derive(Deserialize)]
@@ -140,10 +141,23 @@ pub async fn resume_torrent(state: web::Data<AppState>, path: web::Path<String>)
 
 pub async fn get_peers(state: web::Data<AppState>, path: web::Path<String>) -> HttpResponse {
     let id = path.into_inner();
-    if let Some(_info) = state.engine.get_torrent(&id).await {
-        HttpResponse::Ok().json(json!({ "success": true, "data": [] }))
-    } else {
+    let peers = state.engine.get_peers(&id).await;
+    if peers.is_empty() && state.engine.get_torrent(&id).await.is_none() {
         HttpResponse::NotFound().json(json!({ "success": false, "error": "Torrent not found" }))
+    } else {
+        HttpResponse::Ok().json(json!({ "success": true, "data": peers }))
+    }
+}
+
+pub async fn set_torrent_config(
+    state: web::Data<AppState>,
+    path: web::Path<String>,
+    body: web::Json<TorrentConfig>,
+) -> HttpResponse {
+    let id = path.into_inner();
+    match state.engine.set_torrent_config(&id, body.into_inner()).await {
+        Ok(_) => HttpResponse::Ok().json(json!({ "success": true })),
+        Err(e) => HttpResponse::InternalServerError().json(json!({ "success": false, "error": e.to_string() })),
     }
 }
 

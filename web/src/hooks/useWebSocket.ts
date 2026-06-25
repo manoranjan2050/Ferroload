@@ -39,6 +39,11 @@ export function useWebSocket() {
             seeding_torrents: 0,
             total_downloaded: 0,
             total_uploaded: 0,
+            dht_nodes: 0,
+            pex_peers: 0,
+            lsd_peers: 0,
+            write_buffer_used: 0,
+            write_buffer_capacity: 0,
           })
           break
       }

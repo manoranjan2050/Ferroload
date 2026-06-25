@@ -74,7 +74,17 @@ async fn run_migrations(pool: &SqlitePool) -> Result<()> {
         ("max_download_speed_kbps", "0".to_string()),
         ("max_upload_speed_kbps", "0".to_string()),
         ("listen_port", "6881".to_string()),
+        // Feature 4 – peer discovery
         ("dht_enabled", "true".to_string()),
+        ("pex_enabled", "true".to_string()),
+        ("lsd_enabled", "true".to_string()),
+        // Feature 2 – connection pool
+        ("max_connections_per_torrent", "80".to_string()),
+        ("max_total_connections", "500".to_string()),
+        // Feature 6 – disk write buffer (MB)
+        ("write_buffer_mb", "4".to_string()),
+        // Feature 7 – uTP
+        ("utp_enabled", "true".to_string()),
         ("schedule_enabled", "false".to_string()),
         ("schedule_start", "08:00".to_string()),
         ("schedule_end", "22:00".to_string()),

@@ -851,6 +851,7 @@ dependencies = [
  "anyhow",
  "chrono",
  "hex",
+ "reqwest",
  "serde",
  "serde_bencode",
  "serde_bytes",

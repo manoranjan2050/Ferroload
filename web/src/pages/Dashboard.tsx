@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Plus, ArrowDown, ArrowUp, Activity } from 'lucide-react'
+import { Plus, ArrowDown, ArrowUp, Activity, Radio, HardDrive } from 'lucide-react'
 import SpeedGraph from '../components/SpeedGraph'
 import TorrentList from '../components/TorrentList'
 import TorrentDetailPanel from '../components/TorrentDetailPanel'
@@ -51,6 +51,18 @@ export default function Dashboard() {
               <Activity size={14} />
               {stats?.active_torrents ?? 0} active
             </div>
+            {(stats?.dht_nodes ?? 0) > 0 && (
+              <div className="flex items-center gap-1 text-sm text-white/30" title="DHT nodes">
+                <Radio size={13} />
+                {stats?.dht_nodes ?? 0}
+              </div>
+            )}
+            {(stats?.write_buffer_capacity ?? 0) > 0 && (
+              <div className="flex items-center gap-1 text-sm text-white/30" title={`Write buffer: ${formatBytes(stats?.write_buffer_used ?? 0)} / ${formatBytes(stats?.write_buffer_capacity ?? 0)}`}>
+                <HardDrive size={13} />
+                {Math.round(((stats?.write_buffer_used ?? 0) / (stats?.write_buffer_capacity ?? 1)) * 100)}%
+              </div>
+            )}
             <button
               onClick={() => setShowAdd(true)}
               className="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
