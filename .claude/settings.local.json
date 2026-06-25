@@ -10,7 +10,11 @@
       "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\hooks\")",
       "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\types\")",
       "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\.github\\\\workflows\")",
-      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\pages\")"
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manor\\\\MyProject\\\\Ferroload\\\\web\\\\src\\\\pages\")",
+      "PowerShell(Start-Process \"https://win.rustup.rs/x86_64\")",
+      "Bash(cargo tree *)",
+      "WebFetch(domain:docs.rs)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

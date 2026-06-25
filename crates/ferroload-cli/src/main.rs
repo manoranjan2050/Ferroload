@@ -1,6 +1,5 @@
-use actix_web::{web, App, HttpServer, HttpRequest, HttpResponse, middleware};
+use actix_web::{web, App, HttpServer, HttpRequest, HttpResponse};
 use include_dir::{include_dir, Dir};
-use std::sync::Arc;
 use anyhow::Result;
 use tracing::info;
 

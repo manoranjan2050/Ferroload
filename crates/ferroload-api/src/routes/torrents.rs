@@ -1,7 +1,7 @@
-use actix_web::{web, HttpResponse, HttpRequest};
+use actix_web::{web, HttpResponse};
 use actix_multipart::Multipart;
 use futures_util::StreamExt;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use serde_json::json;
 use crate::state::AppState;
 
@@ -95,7 +95,7 @@ pub async fn get_torrent(state: web::Data<AppState>, path: web::Path<String>) ->
 pub async fn delete_torrent(
     state: web::Data<AppState>,
     path: web::Path<String>,
-    query: web::Query<DeleteQuery>,
+    _query: web::Query<DeleteQuery>,
 ) -> HttpResponse {
     let id = path.into_inner();
     match state.engine.remove_torrent(&id).await {
@@ -140,7 +140,7 @@ pub async fn resume_torrent(state: web::Data<AppState>, path: web::Path<String>)
 
 pub async fn get_peers(state: web::Data<AppState>, path: web::Path<String>) -> HttpResponse {
     let id = path.into_inner();
-    if let Some(info) = state.engine.get_torrent(&id).await {
+    if let Some(_info) = state.engine.get_torrent(&id).await {
         HttpResponse::Ok().json(json!({ "success": true, "data": [] }))
     } else {
         HttpResponse::NotFound().json(json!({ "success": false, "error": "Torrent not found" }))
@@ -156,9 +156,9 @@ pub async fn get_files(state: web::Data<AppState>, path: web::Path<String>) -> H
 }
 
 pub async fn set_priority(
-    state: web::Data<AppState>,
-    path: web::Path<String>,
-    body: web::Json<PriorityInput>,
+    _state: web::Data<AppState>,
+    _path: web::Path<String>,
+    _body: web::Json<PriorityInput>,
 ) -> HttpResponse {
     HttpResponse::Ok().json(json!({ "success": true }))
 }

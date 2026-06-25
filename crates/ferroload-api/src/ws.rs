@@ -1,5 +1,6 @@
 use actix_web::{web, HttpRequest, HttpResponse};
 use actix_ws::Message;
+#[allow(unused_imports)]
 use ferroload_engine::TorrentEvent;
 use crate::state::AppState;
 

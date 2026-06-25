@@ -3,7 +3,7 @@ use std::sync::Arc;
 use tokio::sync::{RwLock, broadcast};
 use anyhow::Result;
 use uuid::Uuid;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use crate::models::*;
 use crate::events::TorrentEvent;
 
